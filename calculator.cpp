@@ -8,7 +8,6 @@
 #include <QPushButton>
 #include <QString>
 
-
 Calculator::Calculator(QWidget *parent) : QWidget(parent)
 {
     QLabel *lLabelArgumentOne = new QLabel("Argument one");
@@ -70,44 +69,25 @@ Calculator::~Calculator()
 
 void Calculator::argumentsPlus()
 {
-    QString argumentOne, argumentTwo;
-    argumentOne = mLineArgumentOne -> displayText();
-    argumentTwo = mLineArgumentTwo -> displayText();
-    double oneDouble = argumentOne.toDouble();
-    double twoDoule = argumentTwo.toDouble();
-    mLineResult -> setText(QString::number(oneDouble + twoDoule));
+    mLineResult -> setText(QString::number(mLineArgumentOne -> displayText().toDouble() + mLineArgumentTwo -> displayText().toDouble()));
 }
 
 void Calculator::argumentsMinus()
 {
-    QString argumentOne, argumentTwo;
-    argumentOne = mLineArgumentOne -> displayText();
-    argumentTwo = mLineArgumentTwo -> displayText();
-    double oneDouble = argumentOne.toDouble();
-    double twoDoule = argumentTwo.toDouble();
-    mLineResult -> setText(QString::number(oneDouble - twoDoule));
+    mLineResult -> setText(QString::number(mLineArgumentOne -> displayText().toDouble() - mLineArgumentTwo -> displayText().toDouble()));
 }
 
 void Calculator::argumentsMultiply()
 {
-    QString argumentOne, argumentTwo;
-    argumentOne = mLineArgumentOne -> displayText();
-    argumentTwo = mLineArgumentTwo -> displayText();
-    double oneDouble = argumentOne.toDouble();
-    double twoDoule = argumentTwo.toDouble();
-    mLineResult -> setText(QString::number(oneDouble * twoDoule));
+     mLineResult -> setText(QString::number(mLineArgumentOne -> displayText().toDouble() * mLineArgumentTwo -> displayText().toDouble()));
 }
 
 void Calculator::argumentsDivision()
 {
-    QString argumentOne, argumentTwo;
-    argumentOne = mLineArgumentOne -> displayText();
-    argumentTwo = mLineArgumentTwo -> displayText();
-    double oneDouble = argumentOne.toDouble();
-    double twoDoule = argumentTwo.toDouble();
+    auto secondArgument = mLineArgumentTwo -> displayText().toDouble();
 
-    if(twoDoule != 0)
-        mLineResult->setText(QString::number(oneDouble/twoDoule));
+    if(secondArgument != 0)
+         mLineResult -> setText(QString::number(mLineArgumentOne -> displayText().toDouble() / secondArgument));
 
     else
         mLineResult->setText("Division by zero");
@@ -115,10 +95,5 @@ void Calculator::argumentsDivision()
 
 void Calculator::argumentsC()
 {
-    QString argumentOne, argumentTwo;
-    argumentOne = mLineArgumentOne -> displayText();
-    argumentTwo = mLineArgumentTwo -> displayText();
-    int oneInt = argumentOne.toInt();
-    int twoInt = argumentTwo.toInt();
-    mLineResult -> setText(QString::number(oneInt = 0, twoInt = 0));
+    mLineResult -> setText(QString::number(0));
 }
